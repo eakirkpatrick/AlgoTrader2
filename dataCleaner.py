@@ -10,7 +10,7 @@ class DataHandler:
     def __init__(self, time_steps):
         self.train_columns = ['OpenPrice', 'High', 'Low', 'Close', 'Volume', 'QuoteAssetVolume', 'Number of Trades']
         self.time_steps = time_steps #time steps the algo will look back
-        self.sc = MinMaxScaler(feature_range=(0,1))
+        self.sc = MinMaxScaler(feature_range=(0,1)) #git file
 
     def handle(self, data):
         prices = np.array(data)
