@@ -10,6 +10,7 @@ class DataHandler:
     def __init__(self, time_steps):
         self.train_columns = ['OpenPrice', 'High', 'Low', 'Close', 'Volume', 'QuoteAssetVolume', 'Number of Trades']
         self.time_steps = time_steps #time steps the algo will look back
+	self.sc = MinMaxScaler(feature_range=(0,1))
 
     def handle(self, data):
         prices = np.array(data)
@@ -20,10 +21,9 @@ class DataHandler:
         return df
 
     def normalize(self, df_test, df_train):
-        min_max = MinMaxScaler(feature_range=(0,1))
         x = df_train.loc[:, self.train_columns].values
-        x_train = min_max.fit_transform(x)
-        x_test = min_max.transform(df_test.loc[:,self.train_columns])
+        x_train = self.sc.fit_transform(x)
+        x_test = self.sc.transform(df_test.loc[:,self.train_columns])
 
         return x_train, x_test
 
