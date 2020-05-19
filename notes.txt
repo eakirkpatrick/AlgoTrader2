@@ -1,0 +1,11 @@
+1451020000000
+1451020000000
+
+day in ms: 86,400,000
+5 years in ms: 157680000000
+1589760748920
+
+"/usr/local/lib/python3.6/site-packages/sklearn/preprocessing/data.py", line 415, in inverse_transform
+    X -= self.min_
+ValueError: non-broadcastable output operand with shape (987,1) doesn't match the broadcast shape (987,7)
+
